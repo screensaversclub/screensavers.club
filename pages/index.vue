@@ -1,43 +1,53 @@
 <template>
   <div class="container">
+    <FloatingNav />
+
     <div>
-      <Logo />
       <h1 class="title">screensavers.club</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+
+
+
+      <p v-if="$fetchState.pending">Fetching mountains...</p>
+      <p v-else-if="$fetchState.error">An error occurred :(</p>
+      <div v-else>
+        <h1>Nuxt Mountains</h1>
+        <ul>
+          <li v-for="mountain of mountains">{{ mountain.title }}</li>
+        </ul>
+        <button @click="$fetch">Refresh</button>
       </div>
+
+      <NuxtLink to="/">Yo</NuxtLink>
+      <NuxtLink to="/page2">Yo</NuxtLink>
+      <NuxtLink to="/page3">Yo</NuxtLink>
     </div>
+
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({})
+<script>
+export default {
+  data() {
+    return {
+      mountains:[]
+    }
+  },
+  async fetch() {
+    this.mountains = await fetch(
+      'https://api.nuxtjs.dev/mountains'
+    ).then(function(res) {
+      console.log(res);
+      return res.json();
+    })
+  },
+  transition: 'gobsmack'
+}
 </script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
 .container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
+  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -46,25 +56,8 @@ export default Vue.extend({})
   text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+a.nuxt-link-exact-active {
+  color: green;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

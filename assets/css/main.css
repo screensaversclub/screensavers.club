@@ -1,0 +1,9 @@
+.gobsmack-enter-active,
+.gobsmack-leave-active {
+  transition: opacity 0.5s;
+}
+
+.gobsmack-enter,
+.gobsmack-leave-to {
+  opacity: 0;
+}
