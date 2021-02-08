@@ -1,13 +1,14 @@
 <template>
-	<div class="floating-nav">
-		hello
-	</div>
+  <div class="floating-nav">
+    <NuxtLink to="/">Home</NuxtLink>
+    <NuxtLink to="/projects">Projects</NuxtLink>
+    <NuxtLink to="/docs">Docs</NuxtLink>
+    <NuxtLink to="/contact">Contact</NuxtLink>
+  </div>
 </template>
 
-<style>
+<style scoped>
 .floating-nav {
-	position: fixed;
-	top: 20px;
-	left: 10px;
+  @apply fixed top-1 left-1;
 }
 </style>

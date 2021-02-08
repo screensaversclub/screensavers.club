@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Futura', 'sans-serif'],
-      body: ['"IBM Plex Mono"', 'monospace'],
+      body: ['aglet-mono', '"IBM Plex Mono"', 'monospace'],
     },
 
     extend: {},

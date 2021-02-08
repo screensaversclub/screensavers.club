@@ -1,9 +1,9 @@
-.gobsmack-enter-active,
-.gobsmack-leave-active {
+.page-enter-active,
+.page-leave-active {
   transition: opacity 0.5s;
 }
 
-.gobsmack-enter,
-.gobsmack-leave-to {
+.page-enter,
+.page-leave-to {
   opacity: 0;
 }
