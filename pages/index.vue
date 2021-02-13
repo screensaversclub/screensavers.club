@@ -2,7 +2,7 @@
   <div class="container">
     <div class="landing-greeting">
       <h1>Screensavers</h1>
-      <p>Cross-media interactive studio</p>
+      <p>Applied interactive arts</p>
     </div>
   </div>
 </template>
